@@ -65,11 +65,7 @@ model.compile(
   loss=tf.losses.SparseCategoricalCrossentropy(from_logits=True),
   metrics=['accuracy'])
 
-model.fit(
-  train_ds,
-  validation_data=val_ds,
-  epochs=20
-)
+model.fit(train_ds, validation_data=val_ds, epochs=8)
 
 test_loss, test_acc = model.evaluate(val_ds, verbose=2)
 
@@ -126,6 +122,10 @@ for i in range(num_images):
   plot_image(i, predictions[i], val_ds)
 plt.tight_layout()
 plt.show()
+
+model.save('C:/Users/fabie/github/Tensorflow/tensorflow_cats/models')
+
+
 
 
 
